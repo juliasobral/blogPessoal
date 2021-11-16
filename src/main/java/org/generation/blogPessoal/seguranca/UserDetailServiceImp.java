@@ -18,9 +18,12 @@ public class UserDetailServiceImp implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername (String userName) {
-		Optional<Usuario> user = userRepository.findAllByUsuario(userName) ;
+		
+		Optional<Usuario> user = userRepository.findByUsuario(userName);
 			user.orElseThrow(() -> new UsernameNotFoundException(userName + "not found."));
-			return user.map(UserDetailsImp: : new).get();
-	}
+			
+			return user.map(UserDetailsImp ::new).get();
+		}
 	
 }
+
