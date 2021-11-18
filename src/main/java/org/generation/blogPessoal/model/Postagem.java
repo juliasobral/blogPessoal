@@ -32,6 +32,10 @@ public class Postagem {
 	private String texto;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("minhasPostagens")
+	private Usuario criador;
+	
+	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 	

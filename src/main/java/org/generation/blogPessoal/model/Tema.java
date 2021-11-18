@@ -23,8 +23,8 @@ public class Tema {
 	@NotNull
 		private String descricao;
 	
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-		private List<Postagem> postagem;
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
+	private List<Postagem> postagem;
 	
 	
 	public long getId() {
