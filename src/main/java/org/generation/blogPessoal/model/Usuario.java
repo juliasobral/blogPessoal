@@ -25,6 +25,22 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@SuppressWarnings("unused")
+	private String tipo;
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	private String foto;
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
 	@NotNull(message = "O atributo Nome é Obrigatório!")
 	private String nome;
@@ -42,13 +58,16 @@ public class Usuario {
 	@JsonIgnoreProperties("criador")
 	private List<Postagem> minhasPostagens;
 
-	public Usuario(long id, String nome, String usuario, String senha) {
+	
+
+	public Usuario(long id, String nome, String usuario, String senha, String tipo, String foto) {
 
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
-
+		this.foto = foto;
+		this.tipo = tipo; 
 	}
 
 	public Usuario() {
@@ -92,6 +111,11 @@ public class Usuario {
 
 	public void setMinhasPostagens(List<Postagem> minhasPostagens) {
 		this.minhasPostagens = minhasPostagens;
+	}
+
+	public String getTipo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
